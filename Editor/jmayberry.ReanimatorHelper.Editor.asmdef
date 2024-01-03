@@ -1,0 +1,21 @@
+{
+    "name": "jmayberry.ReanimatorHelper.Editor",
+    "rootNamespace": "jmayberry.ReanimatorHelper.Editor",
+    "references": [
+        "jmayberry.ReanimatorHelper",
+        "Unity.Reanimation.Editor",
+        "jmayberry.CustomAttributes",
+        "Unity.Reanimation"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

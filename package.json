@@ -1,0 +1,29 @@
+{
+	"name": "com.jmayberry.reanimatorhelper",
+	"displayName": "Reanimator Helper",
+	"version": "1.1.0",
+	"unity": "2021.1",
+	"description": "A helper library for helping with Reanimator.",
+	"keywords": [
+		"reanimator",
+		"animator",
+		"2d",
+		"sprite",
+		"pixel art"
+	],
+	"dependencies": {
+		"com.aarthificial.reanimation": "0.0.2",
+		"ayellowpaper.serialized-dictionary": "1.0.0"
+	},
+	"author": {
+		"name": "jmayberry",
+		"email": "joshua.mayberry1991@gmail.com"
+	},
+	"samples": [
+		{
+			"displayName": "Example Use",
+			"description": "An example on how to use this",
+			"path": "Samples~/Example Use"
+		}
+	]
+}
