@@ -1,5 +1,7 @@
 // Code from: https://forum.unity.com/threads/truncated-filename-in-project-window.405866/#post-9341405
 
+// TODO: Move to CustomAttributes module
+
 using System;
 using System.IO;
 using System.Linq;
