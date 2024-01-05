@@ -10,8 +10,8 @@ namespace jmayberry.ReanimatorHelper.GraphNodes {
 		public ReanimatorNode[] nodes { get; set; }
 
 		protected override void DrawHeader() {
-            this.SetLabel("Switch");
-            base.DrawHeader();
+			this.SetLabel("Switch");
+			base.DrawHeader();
 		}
 	}
 }

@@ -3,8 +3,8 @@ using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace jmayberry.ReanimatorHelper.Editor {
-    // Use: [Unity Dialogue System](https://www.youtube.com/playlist?list=PL0yxB6cCkoWK38XT4stSztcLueJ_kTx5f)
-    public class ReanimatorEditorWindow : EditorWindow {
+	// Use: [Unity Dialogue System](https://www.youtube.com/playlist?list=PL0yxB6cCkoWK38XT4stSztcLueJ_kTx5f)
+	public class ReanimatorEditorWindow : EditorWindow {
 		protected float splitterPos = 250f;
 		protected bool isResizing;
 		protected Rect splitterRect;

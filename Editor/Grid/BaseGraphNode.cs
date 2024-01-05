@@ -36,54 +36,54 @@ namespace jmayberry.ReanimatorHelper.GraphNodes {
 		}
 
 		protected virtual void DrawPorts() {
-            var portContainer = new VisualElement();
-            portContainer.style.flexGrow = 1;
-            portContainer.style.flexDirection = FlexDirection.Row;
-            inputContainer.Insert(0, portContainer);
+			var portContainer = new VisualElement();
+			portContainer.style.flexGrow = 1;
+			portContainer.style.flexDirection = FlexDirection.Row;
+			inputContainer.Insert(0, portContainer);
 
-            portContainer.Add(this.CreatePort("", Orientation.Horizontal, Direction.Input, Port.Capacity.Multi));
+			portContainer.Add(this.CreatePort("", Orientation.Horizontal, Direction.Input, Port.Capacity.Multi));
 
-            var outputContainer = new VisualElement();
-            outputContainer.style.flexGrow = 1;
-            outputContainer.style.flexDirection = FlexDirection.Column;
+			var outputContainer = new VisualElement();
+			outputContainer.style.flexGrow = 1;
+			outputContainer.style.flexDirection = FlexDirection.Column;
 			portContainer.Add(outputContainer);
 
 			RebuildPortList(outputContainer);
-        }
+		}
 
-        protected virtual void RebuildPortList(VisualElement outputContainer) {
-            outputContainer.Clear();
+		protected virtual void RebuildPortList(VisualElement outputContainer) {
+			outputContainer.Clear();
 
-            var addButton = GraphUtilities.CreateButton(
-                text: "Add",
-                onClick: () => {
+			var addButton = GraphUtilities.CreateButton(
+				text: "Add",
+				onClick: () => {
 					outputPorts.Add(this.CreatePort("", Orientation.Horizontal, Direction.Output, Port.Capacity.Single));
-                    RebuildPortList(outputContainer);
-                }
-            );
+					RebuildPortList(outputContainer);
+				}
+			);
 
 			foreach (var port in outputPorts) {
-                var horizontalContainer = new VisualElement();
-                horizontalContainer.style.flexDirection = FlexDirection.Row;
-                outputContainer.Add(horizontalContainer);
+				var horizontalContainer = new VisualElement();
+				horizontalContainer.style.flexDirection = FlexDirection.Row;
+				outputContainer.Add(horizontalContainer);
 
-                horizontalContainer.Add(GraphUtilities.CreateButton(
-                    text: "-",
-                    onClick: () => {
-                        RemovePortConnections(port);
-                        outputPorts.Remove(port);
-                        RebuildPortList(outputContainer);
-                    },
-                    width: 25
-                ));
-                horizontalContainer.Add(port);
+				horizontalContainer.Add(GraphUtilities.CreateButton(
+					text: "-",
+					onClick: () => {
+						RemovePortConnections(port);
+						outputPorts.Remove(port);
+						RebuildPortList(outputContainer);
+					},
+					width: 25
+				));
+				horizontalContainer.Add(port);
 			}
 
-            addButton.SetEnabled(!drivers.keys.Any(key => key == ""));
-            outputContainer.Add(addButton);
-        }
+			addButton.SetEnabled(!drivers.keys.Any(key => key == ""));
+			outputContainer.Add(addButton);
+		}
 
-        protected virtual void DrawBody() {
+		protected virtual void DrawBody() {
 			DrawControlDriver();
 			DrawDriverDictionary();
 		}
@@ -119,16 +119,16 @@ namespace jmayberry.ReanimatorHelper.GraphNodes {
 		private void RebuildDriverList(Foldout driversFoldout) {
 			driversFoldout.Clear();
 
-            var addButton = GraphUtilities.CreateButton(
-                text: "Add",
-                onClick: () => {
-                    drivers.keys.Add("");
-                    drivers.values.Add(0);
-                    RebuildDriverList(driversFoldout);
-                }
-            );
+			var addButton = GraphUtilities.CreateButton(
+				text: "Add",
+				onClick: () => {
+					drivers.keys.Add("");
+					drivers.values.Add(0);
+					RebuildDriverList(driversFoldout);
+				}
+			);
 
-            for (int i = 0; i < drivers.keys.Count; i++) {
+			for (int i = 0; i < drivers.keys.Count; i++) {
 				int currentIndex = i;
 				string currentDriverName = drivers.keys[currentIndex];
 
@@ -149,19 +149,19 @@ namespace jmayberry.ReanimatorHelper.GraphNodes {
 					value: drivers.keys[currentIndex],
 					flexGrow: 1
 				);
-                nameField.RegisterValueChangedCallback(evt => {
-                    if (!drivers.keys.Contains(evt.newValue) || evt.newValue == currentDriverName) {
-                        drivers.keys[currentIndex] = evt.newValue;
-                        addButton.SetEnabled(!drivers.keys.Any(key => key == ""));
-                    }
-                    else {
-                        nameField.value = currentDriverName;
-                    }
-                });
-                horizontalContainer.Add(nameField);
+				nameField.RegisterValueChangedCallback(evt => {
+					if (!drivers.keys.Contains(evt.newValue) || evt.newValue == currentDriverName) {
+						drivers.keys[currentIndex] = evt.newValue;
+						addButton.SetEnabled(!drivers.keys.Any(key => key == ""));
+					}
+					else {
+						nameField.value = currentDriverName;
+					}
+				});
+				horizontalContainer.Add(nameField);
 
 				drivers.values[currentIndex] = currentIndex;
-                horizontalContainer.Add(GraphUtilities.CreateIntegerField(
+				horizontalContainer.Add(GraphUtilities.CreateIntegerField(
 					value: drivers.values[currentIndex],
 					onValueChanged: evt => drivers.values[currentIndex] = evt.newValue,
 					flexGrow: 1
