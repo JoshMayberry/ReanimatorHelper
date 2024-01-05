@@ -2,10 +2,9 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-using jmayberry.ReanimatorHelper.Utilities;
-
 namespace jmayberry.ReanimatorHelper.Editor {
-	public class ReanimatorEditorWindow : EditorWindow {
+    // Use: [Unity Dialogue System](https://www.youtube.com/playlist?list=PL0yxB6cCkoWK38XT4stSztcLueJ_kTx5f)
+    public class ReanimatorEditorWindow : EditorWindow {
 		protected float splitterPos = 250f;
 		protected bool isResizing;
 		protected Rect splitterRect;
@@ -20,7 +19,7 @@ namespace jmayberry.ReanimatorHelper.Editor {
 		protected void OnEnable() {
 			triggerArea = new TriggerArea();
 
-			reanimatorGraph = new ReanimatorGraphView {
+			reanimatorGraph = new ReanimatorGraphView(this) {
 				name = "Reanimator Graph"
 			};
 		}

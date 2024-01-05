@@ -1,7 +1,20 @@
-using Aarthificial.Reanimation.Cels;
+using UnityEditor;
+using UnityEngine.UIElements;
 
-namespace jmayberry.ReanimatorHelper.Editor {
-	public class SimpleAnimationGraphNode : BaseGraphNode {
-		public SimpleCel[] cels { get; set; }
-	}
+using Aarthificial.Reanimation.Cels;
+using jmayberry.ReanimatorHelper.Utilities;
+
+namespace jmayberry.ReanimatorHelper.GraphNodes {
+    public class SimpleAnimationGraphNode : BaseGraphNode {
+        public SimpleCel[] cels { get; set; }
+
+        protected override void DrawHeader() {
+            this.SetLabel("Simple");
+            base.DrawHeader();
+        }
+
+        protected override void RebuildPortList(VisualElement outputContainer) {
+            // Do not allow output nodes
+        }
+    }
 }

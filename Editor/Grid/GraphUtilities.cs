@@ -2,7 +2,7 @@ using System;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine.UIElements;
 
-using jmayberry.ReanimatorHelper.Editor;
+using jmayberry.ReanimatorHelper.GraphNodes;
 using static Codice.Client.BaseCommands.WkStatus.Printers.StatusChangeInfo;
 
 namespace jmayberry.ReanimatorHelper.Utilities {
@@ -33,6 +33,14 @@ namespace jmayberry.ReanimatorHelper.Utilities {
             Port port = node.InstantiatePort(orientation, direction, capacity, typeof(bool));
             port.portName = portName;
             return port;
+        }
+        public static void SetLabel(this BaseGraphNode node, string label = "") {
+            Label titleLabel = node.titleContainer.Q<Label>("title-label");
+            if (titleLabel != null) {
+                titleLabel.text = "Switch";
+            } else {
+                node.titleContainer.Add(new Label(label));
+            }
         }
 
         public static TextField CreateTextField(string value = null, string label = null, EventCallback<ChangeEvent<string>> onValueChanged = null, int flexGrow = -1) {
