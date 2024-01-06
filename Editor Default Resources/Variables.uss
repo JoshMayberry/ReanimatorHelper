@@ -10,6 +10,7 @@
 	--ds-colors-window-dark-grey-5: #252729;
 	--ds-colors-window-dark-grey-6: #27292C;
 	--ds-colors-window-yellow: #FDD057;
+	--ds-colors-window-red: #ff9f90;
 
 	--ds-metrics-grid-25: 25;
 	--ds-metrics-window-pixels-n12: -12px;

@@ -1,24 +1,40 @@
+using System;
+using System.Linq;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
 
+using Aarthificial.Reanimation.Nodes;
 using Aarthificial.Reanimation.Common;
-
+using jmayberry.ReanimatorHelper.Editor;
 using jmayberry.ReanimatorHelper.Utilities;
-using System.Linq;
 
 namespace jmayberry.ReanimatorHelper.GraphNodes {
-	public class BaseGraphNode : Node {
-		[SerializeField] protected ReadableControlDriver controlDriver = new ReadableControlDriver();
-		[SerializeField] protected DriverDictionary drivers = new DriverDictionary();
+	public abstract class BaseGraphNode : Node {
+		[SerializeField] internal protected ControlDriver controlDriver = new ControlDriver();
+		[SerializeField] internal protected DriverDictionary drivers = new DriverDictionary();
 		[SerializeField] protected List<Port> outputPorts = new List<Port>();
+		[SerializeField] protected StyleColor defaultBackgroundColor;
+		[SerializeField] protected ReanimatorGraphView graphView;
 
-		public virtual void Initialize(Vector2 position) {
+		public virtual void Initialize(ReanimatorGraphView graphView, Vector2 position) {
+			this.graphView = graphView;
 			SetPosition(new Rect(position, Vector2.zero));
 
 			mainContainer.AddToClassList("ds-node__main-container");
 			extensionContainer.AddToClassList("ds-node__extension-container");
+
+			defaultBackgroundColor = mainContainer.style.backgroundColor;
+
+			this.AddStyles();
+		}
+
+		public abstract void SaveData(string folderPath, bool autoSave);
+
+		private void AddStyles() {
+			styleSheets.Add((StyleSheet)EditorGUIUtility.Load("NodeStyles.uss"));
 		}
 
 		public virtual void Draw() {
@@ -28,7 +44,7 @@ namespace jmayberry.ReanimatorHelper.GraphNodes {
 		}
 
 		protected virtual void DrawHeader() {
-			TextField nameField = GraphUtilities.CreateTextField(controlDriver.GetName());
+			TextField nameField = GraphUtilities.CreateTextField(ReadableNodeUtilities.GetName(controlDriver));
 			nameField.AddToClassList("ds-node__text-field");
 			nameField.AddToClassList("ds-node__text-field__hidden");
 			nameField.AddToClassList("ds-node__filename-text-field");
@@ -92,11 +108,17 @@ namespace jmayberry.ReanimatorHelper.GraphNodes {
 			Foldout controlDriverFoldout = new Foldout() { text = "Control Driver", value = false };
 			extensionContainer.Add(controlDriverFoldout);
 
-			Toggle autoIncrementToggle = new Toggle() { text = "Auto Increment", value = controlDriver.GetAutoIncrement() };
+			Toggle autoIncrementToggle = new Toggle() { text = "Auto Increment", value = ReadableNodeUtilities.GetAutoIncrement(controlDriver) };
 			controlDriverFoldout.Add(autoIncrementToggle);
+			autoIncrementToggle.RegisterValueChangedCallback(evt => {
+				ReadableNodeUtilities.SetAutoIncrement(controlDriver, evt.newValue);
+			});
 
-			Toggle percentageBasedToggle = new Toggle() { text = "Percentage Based", value = controlDriver.GetPercentageBased() };
+			Toggle percentageBasedToggle = new Toggle() { text = "Percentage Based", value = ReadableNodeUtilities.GetPercentageBased(controlDriver) };
 			controlDriverFoldout.Add(percentageBasedToggle);
+			percentageBasedToggle.RegisterValueChangedCallback(evt => {
+				ReadableNodeUtilities.SetAutoIncrement(controlDriver, evt.newValue);
+			});
 		}
 
 		protected virtual void DrawDriverDictionary() {
@@ -130,7 +152,7 @@ namespace jmayberry.ReanimatorHelper.GraphNodes {
 
 			for (int i = 0; i < drivers.keys.Count; i++) {
 				int currentIndex = i;
-				string currentDriverName = drivers.keys[currentIndex];
+				string currentName = drivers.keys[currentIndex];
 
 				var horizontalContainer = new VisualElement();
 				horizontalContainer.style.flexDirection = FlexDirection.Row;
@@ -150,17 +172,13 @@ namespace jmayberry.ReanimatorHelper.GraphNodes {
 					flexGrow: 1
 				);
 				nameField.RegisterValueChangedCallback(evt => {
-					if (!drivers.keys.Contains(evt.newValue) || evt.newValue == currentDriverName) {
-						drivers.keys[currentIndex] = evt.newValue;
-						addButton.SetEnabled(!drivers.keys.Any(key => key == ""));
-					}
-					else {
-						nameField.value = currentDriverName;
-					}
+					string newKey = evt.newValue;
+					drivers.keys[currentIndex] = newKey;
+					addButton.SetEnabled(!drivers.keys.Any(key => key == ""));
+					UpdateErrorDisplay(driversFoldout);
 				});
 				horizontalContainer.Add(nameField);
 
-				drivers.values[currentIndex] = currentIndex;
 				horizontalContainer.Add(GraphUtilities.CreateIntegerField(
 					value: drivers.values[currentIndex],
 					onValueChanged: evt => drivers.values[currentIndex] = evt.newValue,
@@ -171,7 +189,29 @@ namespace jmayberry.ReanimatorHelper.GraphNodes {
 			}
 			
 			addButton.SetEnabled(!drivers.keys.Any(key => key == ""));
+			UpdateErrorDisplay(driversFoldout);
 			driversFoldout.Add(addButton);
+		}
+
+		private void UpdateErrorDisplay(Foldout driversFoldout) {
+			string guid = ReadableNodeUtilities.GetGuid(controlDriver);
+
+			graphView.NodeClearError(guid);
+
+			List<VisualElement> containerList = driversFoldout.Children().ToList();
+			HashSet<string> existingDriverKeys = new HashSet<string>();
+			for (int i = 0; i < this.drivers.keys.Count; i++) {
+				string driverKey = this.drivers.keys[i];
+				VisualElement horizontalContainer = containerList[i];
+
+				bool hasError = (driverKey != "") && existingDriverKeys.Contains(driverKey);
+				if (hasError) {
+					graphView.NodeHasError(guid);
+				}
+
+				horizontalContainer.EnableInClassList("ds-node__has-error--duplicate-driver", hasError);
+				existingDriverKeys.Add(driverKey);
+			}
 		}
 
 		private void RemovePortConnections(Port port) {
@@ -190,6 +230,22 @@ namespace jmayberry.ReanimatorHelper.GraphNodes {
 				}
 
 				connection.RemoveFromHierarchy();
+			}
+		}
+
+		public Port CreatePort(string portName = "", Orientation orientation = Orientation.Horizontal, Direction direction = Direction.Output, Port.Capacity capacity = Port.Capacity.Single) {
+			Port port = this.InstantiatePort(orientation, direction, capacity, typeof(bool));
+			port.portName = portName;
+			return port;
+		}
+
+		public void SetLabel(string label = "") {
+			Label titleLabel = this.titleContainer.Q<Label>("title-label");
+			if (titleLabel != null) {
+				titleLabel.text = label;
+			}
+			else {
+				this.titleContainer.Add(new Label(label));
 			}
 		}
 	}
