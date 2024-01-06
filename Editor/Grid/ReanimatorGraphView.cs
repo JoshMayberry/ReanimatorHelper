@@ -86,7 +86,6 @@ namespace jmayberry.ReanimatorHelper.Editor {
 			Type nodeType = Type.GetType($"jmayberry.ReanimatorHelper.GraphNodes.{nodeName}GraphNode");
 			BaseGraphNode node = (BaseGraphNode)Activator.CreateInstance(nodeType);
 			node.Initialize(this, position);
-			node.Draw();
 
 			return node;
 		}
@@ -95,7 +94,6 @@ namespace jmayberry.ReanimatorHelper.Editor {
 			SwitchGraphNode node = new SwitchGraphNode();
 			node.SetData(data);
 			node.Initialize(this, position);
-			node.Draw();
 
 			return node;
 		}
@@ -104,7 +102,6 @@ namespace jmayberry.ReanimatorHelper.Editor {
 			SimpleAnimationGraphNode node = new SimpleAnimationGraphNode();
 			node.SetData(data);
 			node.Initialize(this, position);
-			node.Draw();
 
 			return node;
 		}
@@ -113,7 +110,6 @@ namespace jmayberry.ReanimatorHelper.Editor {
 			MirroredAnimationGraphNode node = new MirroredAnimationGraphNode();
 			node.SetData(data);
 			node.Initialize(this, position);
-			node.Draw();
 
 			return node;
 		}

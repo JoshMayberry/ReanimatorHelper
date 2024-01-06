@@ -15,7 +15,8 @@ namespace jmayberry.ReanimatorHelper.GraphNodes {
 	public abstract class BaseGraphNode : Node {
 		[SerializeField] internal protected ControlDriver controlDriver = new ControlDriver();
 		[SerializeField] internal protected DriverDictionary drivers = new DriverDictionary();
-		[SerializeField] protected List<Port> outputPorts = new List<Port>();
+		[SerializeField] internal protected List<Port> outputPorts = new List<Port>();
+		[SerializeField] internal protected Port inputPort;
 		[SerializeField] protected StyleColor defaultBackgroundColor;
 		[SerializeField] protected ReanimatorGraphView graphView;
 
@@ -29,6 +30,11 @@ namespace jmayberry.ReanimatorHelper.GraphNodes {
 			defaultBackgroundColor = mainContainer.style.backgroundColor;
 
 			this.AddStyles();
+			this.AddHeader();
+			this.AddPorts();
+			this.AddBody();
+
+			this.RefreshExpandedState();
 		}
 
 		public abstract void SaveData(string folderPath, bool autoSave);
@@ -37,69 +43,32 @@ namespace jmayberry.ReanimatorHelper.GraphNodes {
 			styleSheets.Add((StyleSheet)EditorGUIUtility.Load("NodeStyles.uss"));
 		}
 
-		public virtual void Draw() {
-			DrawHeader();
-			DrawPorts();
-			DrawBody();
-		}
-
-		protected virtual void DrawHeader() {
-			TextField nameField = GraphUtilities.CreateTextField(ReadableNodeUtilities.GetName(controlDriver));
+		protected virtual void AddHeader() {
+			TextField nameField = GraphUtilities.CreateTextField(ReadableNodeUtilities.GetName(controlDriver)); // TODO: Make this the file name and put this in the control driver section
 			nameField.AddToClassList("ds-node__text-field");
 			nameField.AddToClassList("ds-node__text-field__hidden");
 			nameField.AddToClassList("ds-node__filename-text-field");
 			titleContainer.Insert(1, nameField);
 		}
 
-		protected virtual void DrawPorts() {
+		protected virtual void AddPorts() {
 			var portContainer = new VisualElement();
 			portContainer.style.flexGrow = 1;
 			portContainer.style.flexDirection = FlexDirection.Row;
 			inputContainer.Insert(0, portContainer);
 
-			portContainer.Add(this.CreatePort("", Orientation.Horizontal, Direction.Input, Port.Capacity.Multi));
-
-			var outputContainer = new VisualElement();
-			outputContainer.style.flexGrow = 1;
-			outputContainer.style.flexDirection = FlexDirection.Column;
-			portContainer.Add(outputContainer);
-
-			RebuildPortList(outputContainer);
+			AddInputPorts(portContainer);
+			AddOutputPorts(portContainer);
 		}
 
-		protected virtual void RebuildPortList(VisualElement outputContainer) {
-			outputContainer.Clear();
-
-			var addButton = GraphUtilities.CreateButton(
-				text: "Add",
-				onClick: () => {
-					outputPorts.Add(this.CreatePort("", Orientation.Horizontal, Direction.Output, Port.Capacity.Single));
-					RebuildPortList(outputContainer);
-				}
-			);
-
-			foreach (var port in outputPorts) {
-				var horizontalContainer = new VisualElement();
-				horizontalContainer.style.flexDirection = FlexDirection.Row;
-				outputContainer.Add(horizontalContainer);
-
-				horizontalContainer.Add(GraphUtilities.CreateButton(
-					text: "-",
-					onClick: () => {
-						RemovePortConnections(port);
-						outputPorts.Remove(port);
-						RebuildPortList(outputContainer);
-					},
-					width: 25
-				));
-				horizontalContainer.Add(port);
-			}
-
-			addButton.SetEnabled(!drivers.keys.Any(key => key == ""));
-			outputContainer.Add(addButton);
+		protected virtual void AddInputPorts(VisualElement portContainer) {
+			this.inputPort = this.CreatePort("", Orientation.Horizontal, Direction.Input, Port.Capacity.Multi);
+			portContainer.Add(this.inputPort);
 		}
 
-		protected virtual void DrawBody() {
+		protected virtual void AddOutputPorts(VisualElement portContainer) { }
+
+		protected virtual void AddBody() {
 			DrawControlDriver();
 			DrawDriverDictionary();
 		}
@@ -214,7 +183,7 @@ namespace jmayberry.ReanimatorHelper.GraphNodes {
 			}
 		}
 
-		private void RemovePortConnections(Port port) {
+		protected void RemovePortConnections(Port port) {
 			if (port == null) {
 				return;
 			}
@@ -246,6 +215,16 @@ namespace jmayberry.ReanimatorHelper.GraphNodes {
 			}
 			else {
 				this.titleContainer.Add(new Label(label));
+			}
+		}
+
+		public IEnumerable<BaseGraphNode> YieldChildNodes() {
+			foreach (var port in this.outputPorts) {
+				foreach (var edge in port.connections) {
+					if (edge.input.node is BaseGraphNode childNode) {
+						yield return childNode;
+					}
+				}
 			}
 		}
 	}

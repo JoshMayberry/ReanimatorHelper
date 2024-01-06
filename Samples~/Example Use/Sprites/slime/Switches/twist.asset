@@ -9,20 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02f1da0b6abdb7d45aa4315eccab639b, type: 3}
-  m_Name: action_starting
+  m_Script: {fileID: 11500000, guid: c1b935bc3bfd4944ab93c4a574dfd0da, type: 3}
+  m_Name: twist
   m_EditorClassIdentifier: 
-  cels:
-  - sprite: {fileID: 4710622996248232337, guid: 40ce8698afa71e44f989a1bb528874a0, type: 3}
-    drivers:
-      keys:
-      - OnActionStarting
-      values: 00000000
+  nodes:
+  - {fileID: 11400000, guid: b28fe1bedb8513f4085049001c07c65d, type: 2}
+  - {fileID: 11400000, guid: 856ae73ef6da6f548a9675c95ca7fac4, type: 2}
   controlDriver:
-    name: action_starting
-    autoIncrement: 1
+    name: state_twist
+    autoIncrement: 0
     percentageBased: 0
-    guid: 8c00feba-3a51-4ebf-8ea0-b5b7da99ebac
+    guid: 5a97ef7e-59ff-43dc-be61-2d04f94b8672
   drivers:
     keys: []
     values: 

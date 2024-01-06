@@ -10,31 +10,31 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 02f1da0b6abdb7d45aa4315eccab639b, type: 3}
-  m_Name: move_up
+  m_Name: move_down
   m_EditorClassIdentifier: 
   cels:
-  - sprite: {fileID: -2730961739875272628, guid: 40ce8698afa71e44f989a1bb528874a0, type: 3}
+  - sprite: {fileID: -5014328954837861173, guid: 40ce8698afa71e44f989a1bb528874a0, type: 3}
     drivers:
       keys:
       - OnMove
       values: 00000000
-  - sprite: {fileID: 5128048539264489900, guid: 40ce8698afa71e44f989a1bb528874a0, type: 3}
+  - sprite: {fileID: 3679295516146813478, guid: 40ce8698afa71e44f989a1bb528874a0, type: 3}
     drivers:
       keys: []
       values: 
-  - sprite: {fileID: -555867011953884611, guid: 40ce8698afa71e44f989a1bb528874a0, type: 3}
+  - sprite: {fileID: 1770138074998597002, guid: 40ce8698afa71e44f989a1bb528874a0, type: 3}
     drivers:
       keys: []
       values: 
-  - sprite: {fileID: 2074574692172610518, guid: 40ce8698afa71e44f989a1bb528874a0, type: 3}
+  - sprite: {fileID: 2878596559054345124, guid: 40ce8698afa71e44f989a1bb528874a0, type: 3}
     drivers:
       keys: []
       values: 
   controlDriver:
-    name: move_up
+    name: move_down
     autoIncrement: 1
     percentageBased: 0
-    guid: 4ec538f8-3458-4b8a-8b83-0a60177e12dd
+    guid: 97ac551e-5892-4bda-8cf6-5401f5be2751
   drivers:
     keys: []
     values: 

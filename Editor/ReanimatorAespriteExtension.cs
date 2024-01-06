@@ -11,8 +11,11 @@ using Aarthificial.Reanimation.Cels;
 using Aarthificial.Reanimation.Nodes;
 using Aarthificial.Reanimation.Common;
 using Aarthificial.Reanimation.Editor.Nodes;
+using static PlasticPipe.Server.MonitorStats;
+using UnityEngine.WSA;
 
 namespace jmayberry.ReanimatorHelper.Editor {
+
 	[CustomEditor(typeof(SimpleAnimationNode))]
 	public class AespriteSimpleAnimationNodeEditor : AnimationNodeEditor {
 		readonly static Regex trailingNumbersRegex = new Regex(@"(\s*\d+$)");
@@ -125,14 +128,17 @@ namespace jmayberry.ReanimatorHelper.Editor {
 			name = trailingNumbersRegex.Replace(name, "");
 
 			string filepath = AssetDatabase.GetAssetPath(Selection.activeObject);
-			string assetPath = $"{GetFolderForAsset(filepath)}/{name}.asset";
-			//string assetPath = $"{GetFolderForAsset(filepath)}/{Path.GetFileNameWithoutExtension(filepath)}_{name}.asset";
+			string assetFolderPath = GetFolderForAsset(filepath);
+			if (!AssetDatabase.IsValidFolder($"{assetFolderPath}/Animations/")) {
+				AssetDatabase.CreateFolder(assetFolderPath, "Animations");
+			}
+
+			string assetPath = $"{assetFolderPath}/Animations/{name}.asset";
+			//string assetPath = $"{assetFolderPath}/Animations/{Path.GetFileNameWithoutExtension(filepath)}_{name}.asset";
 
 			var existingNode = AssetDatabase.LoadAssetAtPath<SimpleAnimationNode>(assetPath);
 			if (existingNode == null) {
-				var controlDriver = new ControlDriver(name, true);
-
-				var animationNode = SimpleAnimationNode.Create<SimpleAnimationNode>(driver: controlDriver, cels: cels);
+				var animationNode = SimpleAnimationNode.Create<SimpleAnimationNode>(driver: new ControlDriver(name, true), cels: cels);
 				animationNode.name = name;
 				AssetDatabase.CreateAsset(animationNode, AssetDatabase.GenerateUniqueAssetPath(assetPath));
 				AssetDatabase.SaveAssets();

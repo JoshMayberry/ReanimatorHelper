@@ -17,7 +17,7 @@ MonoBehaviour:
     drivers:
       keys:
       - OnHurt
-      values: 03000000
+      values: 00000000
   - sprite: {fileID: -1080733129186375575, guid: 40ce8698afa71e44f989a1bb528874a0, type: 3}
     drivers:
       keys: []
@@ -43,7 +43,7 @@ MonoBehaviour:
     name: hurt
     autoIncrement: 1
     percentageBased: 0
-    guid: 47e864ee-3a77-49cc-960c-f7645b77cacf
+    guid: 8ee17e0b-d463-4207-bb1f-7817f528a041
   drivers:
     keys: []
     values: 

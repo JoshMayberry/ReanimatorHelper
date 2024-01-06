@@ -103,15 +103,6 @@ namespace jmayberry.ReanimatorHelper.Utilities {
 			var field = controlDriver.GetType().GetField("name", BindingFlags.NonPublic | BindingFlags.Instance);
 			field?.SetValue(controlDriver, value);
 		}
-		public static string GetGuid(ControlDriver controlDriver) {
-			var field = controlDriver.GetType().GetField("guid", BindingFlags.NonPublic | BindingFlags.Instance);
-			return (string)field?.GetValue(controlDriver);
-		}
-
-		public static void SetGuid(ControlDriver controlDriver, string value) {
-			var field = controlDriver.GetType().GetField("guid", BindingFlags.NonPublic | BindingFlags.Instance);
-			field?.SetValue(controlDriver, value);
-		}
 
 		public static bool GetAutoIncrement(ControlDriver controlDriver) {
 			var field = controlDriver.GetType().GetField("autoIncrement", BindingFlags.NonPublic | BindingFlags.Instance);
@@ -131,6 +122,26 @@ namespace jmayberry.ReanimatorHelper.Utilities {
 		public static void SetPercentageBased(ControlDriver controlDriver, bool value) {
 			var field = controlDriver.GetType().GetField("percentageBased", BindingFlags.NonPublic | BindingFlags.Instance);
 			field?.SetValue(controlDriver, value);
+		}
+
+		public static string GetGuid(ControlDriver controlDriver) {
+			var field = controlDriver.GetType().GetField("guid", BindingFlags.NonPublic | BindingFlags.Instance);
+			return (string)field?.GetValue(controlDriver);
+		}
+
+		public static string GetGuid(SwitchNode node) {
+			ControlDriver controlDriver = GetControlDriver(node);
+			return GetGuid(controlDriver);
+		}
+
+		public static string GetGuid(SimpleAnimationNode node) {
+			ControlDriver controlDriver = GetControlDriver(node);
+			return GetGuid(controlDriver);
+		}
+
+		public static string GetGuid(MirroredAnimationNode node) {
+			ControlDriver controlDriver = GetControlDriver(node);
+			return GetGuid(controlDriver);
 		}
 
 		public static ReanimatorNode[] GetNodes(SwitchNode node) {

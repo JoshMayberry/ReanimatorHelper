@@ -19,13 +19,9 @@ namespace jmayberry.ReanimatorHelper.GraphNodes {
 			this.cels = ReadableNodeUtilities.GetCels(data);
 		}
 
-		protected override void DrawHeader() {
+		protected override void AddHeader() {
 			this.SetLabel("Mirror");
-			base.DrawHeader();
-		}
-
-		protected override void RebuildPortList(VisualElement outputContainer) {
-			// Do not allow output nodes
+			base.AddHeader();
 		}
 
 		public override void SaveData(string folderPath, bool autosave = true) {

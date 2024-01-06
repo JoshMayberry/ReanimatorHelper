@@ -5,9 +5,11 @@ using UnityEngine.UIElements;
 using Aarthificial.Reanimation.Nodes;
 using jmayberry.ReanimatorHelper.Utilities;
 using UnityEngine;
+using System.Linq;
 
 namespace jmayberry.ReanimatorHelper.GraphNodes {
 	public class SwitchGraphNode : BaseGraphNode {
+		VisualElement outputNodeContainer;
 		public ReanimatorNode[] nodes { get; set; }
 		SwitchNode data;
 
@@ -19,9 +21,9 @@ namespace jmayberry.ReanimatorHelper.GraphNodes {
 			this.nodes = ReadableNodeUtilities.GetNodes(data);
 		}
 
-		protected override void DrawHeader() {
+		protected override void AddHeader() {
 			this.SetLabel("Switch");
-			base.DrawHeader();
+			base.AddHeader();
 		}
 
 		public override void SaveData(string folderPath, bool autosave=true) {
@@ -38,6 +40,47 @@ namespace jmayberry.ReanimatorHelper.GraphNodes {
 			if (autosave) {
 				AssetDatabase.SaveAssets();
 			}
+		}
+
+		protected override void AddOutputPorts(VisualElement portContainer) {
+			outputNodeContainer = new VisualElement();
+			outputNodeContainer.style.flexGrow = 1;
+			outputNodeContainer.style.flexDirection = FlexDirection.Column;
+			portContainer.Add(outputNodeContainer);
+
+			RebuildOutputPorts();
+		}
+
+		public virtual void RebuildOutputPorts() {
+			outputNodeContainer.Clear();
+
+			var addButton = GraphUtilities.CreateButton(
+				text: "Add",
+				onClick: () => {
+					outputPorts.Add(this.CreatePort("", Orientation.Horizontal, Direction.Output, Port.Capacity.Single));
+					RebuildOutputPorts();
+				}
+			);
+
+			foreach (var port in outputPorts) {
+				var horizontalContainer = new VisualElement();
+				horizontalContainer.style.flexDirection = FlexDirection.Row;
+				outputNodeContainer.Add(horizontalContainer);
+
+				horizontalContainer.Add(GraphUtilities.CreateButton(
+					text: "-",
+					onClick: () => {
+						RemovePortConnections(port);
+						outputPorts.Remove(port);
+						RebuildOutputPorts();
+					},
+					width: 25
+				));
+				horizontalContainer.Add(port);
+			}
+
+			addButton.SetEnabled(!drivers.keys.Any(key => key == ""));
+			outputNodeContainer.Add(addButton);
 		}
 	}
 }
