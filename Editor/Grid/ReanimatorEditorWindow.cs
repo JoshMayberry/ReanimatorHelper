@@ -58,6 +58,7 @@ namespace jmayberry.ReanimatorHelper.Editor {
 			toolbar.Add(GraphUtilities.CreateButton("Load", Load));
 			toolbar.Add(saveButton);
 			toolbar.Add(miniMapButton);
+			toolbar.Add(GraphUtilities.CreateButton("Clear", Clear));
 			toolbar.Add(GraphUtilities.CreateButton("AutoSort", () => {
 				var nodeList = new List<BaseGraphNode>();
 
@@ -79,8 +80,13 @@ namespace jmayberry.ReanimatorHelper.Editor {
 			graphView.StretchToParentSize();
 		}
 
-		protected void Load() {
+		protected void Clear() {
+			graphView.DeleteElements(graphView.edges.ToList());
 			graphView.DeleteElements(graphView.nodes.ToList());
+		}
+
+		protected void Load() {
+			Clear();
 
 			Dictionary<string, BaseGraphNode> nodeCatalog = Load_AddNodes();
 			Load_AddConnections(nodeCatalog);
@@ -275,15 +281,32 @@ namespace jmayberry.ReanimatorHelper.Editor {
 
 			foreach (Node node in graphView.nodes.ToList()) {
 				if (node is SwitchGraphNode switchGraphNode) {
-					switchGraphNode.SaveData($"{folderPath}/Switches", false);
+					switchGraphNode.SaveData_CreateAsset($"{folderPath}/Switches", false);
 					continue;
 				}
 				else if (node is SimpleAnimationGraphNode simpleAnimationGraphNode) {
-					simpleAnimationGraphNode.SaveData($"{folderPath}/Animations", false);
+					simpleAnimationGraphNode.SaveData_CreateAsset($"{folderPath}/Animations", false);
 					continue;
 				}
 				else if (node is MirroredAnimationGraphNode mirroredAnimationGraphNode) {
-					mirroredAnimationGraphNode.SaveData($"{folderPath}/Switches", false);
+					mirroredAnimationGraphNode.SaveData_CreateAsset($"{folderPath}/Switches", false);
+					continue;
+				}
+
+				Debug.LogWarning($"Unknown node in node list {node}");
+			}
+
+			foreach (Node node in graphView.nodes.ToList()) {
+				if (node is SwitchGraphNode switchGraphNode) {
+					switchGraphNode.SaveData_UpdateAsset($"{folderPath}/Switches", false);
+					continue;
+				}
+				else if (node is SimpleAnimationGraphNode simpleAnimationGraphNode) {
+					simpleAnimationGraphNode.SaveData_UpdateAsset($"{folderPath}/Animations", false);
+					continue;
+				}
+				else if (node is MirroredAnimationGraphNode mirroredAnimationGraphNode) {
+					mirroredAnimationGraphNode.SaveData_UpdateAsset($"{folderPath}/Switches", false);
 					continue;
 				}
 

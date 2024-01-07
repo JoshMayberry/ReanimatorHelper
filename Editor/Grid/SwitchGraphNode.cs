@@ -1,17 +1,17 @@
+using System.Linq;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
+using UnityEngine;
 using UnityEngine.UIElements;
 
 using Aarthificial.Reanimation.Nodes;
 using jmayberry.ReanimatorHelper.Utilities;
-using UnityEngine;
-using System.Linq;
 
 namespace jmayberry.ReanimatorHelper.GraphNodes {
 	public class SwitchGraphNode : BaseGraphNode {
 		VisualElement outputNodeContainer;
 		public ReanimatorNode[] nodes { get; set; }
-		SwitchNode data;
+		internal SwitchNode data;
 
 		public void SetData(SwitchNode data) {
 			this.data = data;
@@ -27,11 +27,45 @@ namespace jmayberry.ReanimatorHelper.GraphNodes {
 			base.AddHeader();
 		}
 
-		public override void SaveData(string folderPath, bool autosave=true) {
+		public override void SaveData_CreateAsset(string folderPath, bool autosave = true) {
 			if (data == null) {
 				this.data = ScriptableObject.CreateInstance<SwitchNode>();
 				AssetDatabase.CreateAsset(this.data, AssetDatabase.GenerateUniqueAssetPath($"{folderPath}/{this.filename}.asset"));
 			}
+
+			if (autosave) {
+				AssetDatabase.SaveAssets();
+			}
+		}
+
+		public override void SaveData_UpdateAsset(string folderPath, bool autosave=true) {
+			if (data == null) {
+				Debug.LogError("data is empty");
+				return;
+			}
+
+			this.nodes = this.outputPorts
+				.SelectMany(port => port.connections)
+				.Select(connection => connection.input.node)
+				.OfType<BaseGraphNode>() // Filter nodes of type BaseGraphNode
+				.Select(node => {
+					switch (node) {
+						case SwitchGraphNode switchNode:
+							return switchNode.data as ReanimatorNode;
+							
+						case SimpleAnimationGraphNode simpleAnimationNode:
+							return simpleAnimationNode.data as ReanimatorNode;
+							
+						case MirroredAnimationGraphNode mirroredAnimationNode:
+							return mirroredAnimationNode.data as ReanimatorNode;
+							
+						default:
+							Debug.Log($"Unknown data type: {node.GetType().Name}");
+							return null;
+					}
+				})
+				.Where(data => data != null)
+				.ToArray();
 
 			this.data.name = this.filename;
 			ReadableNodeUtilities.SetControlDriver(data, this.controlDriver);

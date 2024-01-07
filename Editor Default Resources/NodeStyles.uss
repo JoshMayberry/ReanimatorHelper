@@ -21,7 +21,7 @@
 
 /* INPUTS */
 
-.ds-node__text-field > .unity-text-field__input {
+.ds-node__text-field. > .unity-text-field__input {
 	background-color: var(--ds-colors-window-dark-grey-1);
 	border-color: var(--ds-colors-window-dark-grey-6);
 	border-radius: var(--ds-metrics-window-pixels-4);
@@ -29,6 +29,10 @@
 	min-width: var(--ds-metrics-window-pixels-160);
 	padding: var(--ds-metrics-window-pixels-8);
 	white-space: normal;
+}
+
+.ds-node__text-field.ds-node__has-error--empty-name > .unity-text-field__input {
+	background-color: var(--ds-colors-window-red);
 }
 
 .ds-node__text-field__hidden > .unity-text-field__input {

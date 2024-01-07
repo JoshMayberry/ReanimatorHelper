@@ -13,13 +13,15 @@ using jmayberry.ReanimatorHelper.Utilities;
 
 namespace jmayberry.ReanimatorHelper.GraphNodes {
 	public abstract class BaseGraphNode : Node {
-		[SerializeField] internal protected ControlDriver controlDriver = new ControlDriver();
-		[SerializeField] internal protected DriverDictionary drivers = new DriverDictionary();
-		[SerializeField] internal protected List<Port> outputPorts = new List<Port>();
-		[SerializeField] internal protected Port inputPort;
-		[SerializeField] protected StyleColor defaultBackgroundColor;
-		[SerializeField] protected ReanimatorGraphView graphView;
-		[SerializeField] protected string filename;
+		internal protected ControlDriver controlDriver = new ControlDriver();
+		internal protected DriverDictionary drivers = new DriverDictionary();
+		internal protected List<Port> outputPorts = new List<Port>();
+		internal protected Port inputPort;
+		protected StyleColor defaultBackgroundColor;
+		protected ReanimatorGraphView graphView;
+		protected string filename;
+		protected TextField nameField;
+		protected Foldout driversFoldout;
 
 		public virtual void Initialize(ReanimatorGraphView graphView, Vector2 position) {
 			this.graphView = graphView;
@@ -38,15 +40,18 @@ namespace jmayberry.ReanimatorHelper.GraphNodes {
 			this.RefreshExpandedState();
 		}
 
-		public abstract void SaveData(string folderPath, bool autoSave);
+		public abstract void SaveData_CreateAsset(string folderPath, bool autoSave);
+
+		public abstract void SaveData_UpdateAsset(string folderPath, bool autoSave);
 
 		private void AddStyles() {
 			styleSheets.Add((StyleSheet)EditorGUIUtility.Load("NodeStyles.uss"));
 		}
 
 		protected virtual void AddHeader() {
-			TextField nameField = GraphUtilities.CreateTextField(value: this.filename, onValueChanged: evt => {
+			nameField = GraphUtilities.CreateTextField(value: this.filename, onValueChanged: evt => {
 				this.filename = evt.newValue;
+				UpdateErrorDisplay();
 			});
 			titleContainer.Insert(1, nameField);
 			nameField.AddToClassList("ds-node__text-field");
@@ -80,9 +85,9 @@ namespace jmayberry.ReanimatorHelper.GraphNodes {
 			Foldout controlDriverFoldout = new Foldout() { text = "Control Driver", value = true };
 			extensionContainer.Add(controlDriverFoldout);
 
-			TextField nameField = GraphUtilities.CreateTextField(ReadableNodeUtilities.GetName(controlDriver));
-			controlDriverFoldout.Add(nameField);
-			nameField.RegisterValueChangedCallback(evt => {
+			TextField driverNameField = GraphUtilities.CreateTextField(ReadableNodeUtilities.GetName(controlDriver));
+			controlDriverFoldout.Add(driverNameField);
+			driverNameField.RegisterValueChangedCallback(evt => {
 				ReadableNodeUtilities.SetName(controlDriver, evt.newValue);
 			});
 
@@ -110,13 +115,13 @@ namespace jmayberry.ReanimatorHelper.GraphNodes {
 				drivers.values = new List<int>();
 			}
 
-			Foldout driversFoldout = new Foldout() { text = "Drivers", value = true };
+			driversFoldout = new Foldout() { text = "Drivers", value = true };
 			extensionContainer.Add(driversFoldout);
 
-			RebuildDriverList(driversFoldout);
+			RebuildDriverList();
 		}
 
-		private void RebuildDriverList(Foldout driversFoldout) {
+		private void RebuildDriverList() {
 			driversFoldout.Clear();
 
 			var addButton = GraphUtilities.CreateButton(
@@ -124,7 +129,7 @@ namespace jmayberry.ReanimatorHelper.GraphNodes {
 				onClick: () => {
 					drivers.keys.Add("");
 					drivers.values.Add(0);
-					RebuildDriverList(driversFoldout);
+					RebuildDriverList();
 				}
 			);
 
@@ -140,7 +145,7 @@ namespace jmayberry.ReanimatorHelper.GraphNodes {
 					onClick: () => {
 						drivers.keys.RemoveAt(currentIndex);
 						drivers.values.RemoveAt(currentIndex);
-						RebuildDriverList(driversFoldout);
+						RebuildDriverList();
 					},
 					width: 25
 				));
@@ -153,7 +158,7 @@ namespace jmayberry.ReanimatorHelper.GraphNodes {
 					string newKey = evt.newValue;
 					drivers.keys[currentIndex] = newKey;
 					addButton.SetEnabled(!drivers.keys.Any(key => key == ""));
-					UpdateErrorDisplay(driversFoldout);
+					UpdateErrorDisplay();
 				});
 				horizontalContainer.Add(nameField);
 
@@ -167,11 +172,11 @@ namespace jmayberry.ReanimatorHelper.GraphNodes {
 			}
 			
 			addButton.SetEnabled(!drivers.keys.Any(key => key == ""));
-			UpdateErrorDisplay(driversFoldout);
+			UpdateErrorDisplay();
 			driversFoldout.Add(addButton);
 		}
 
-		private void UpdateErrorDisplay(Foldout driversFoldout) {
+		private void UpdateErrorDisplay() {
 			string guid = ReadableNodeUtilities.GetGuid(controlDriver);
 
 			graphView.NodeClearError(guid);
@@ -189,6 +194,12 @@ namespace jmayberry.ReanimatorHelper.GraphNodes {
 
 				horizontalContainer.EnableInClassList("ds-node__has-error--duplicate-driver", hasError);
 				existingDriverKeys.Add(driverKey);
+			}
+
+			bool nameIsEmpty = this.filename == "";
+			nameField.EnableInClassList("ds-node__has-error--empty-name", nameIsEmpty);
+			if (nameIsEmpty) {
+				graphView.NodeHasError(guid);
 			}
 		}
 

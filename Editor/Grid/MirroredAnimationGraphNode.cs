@@ -9,7 +9,7 @@ using UnityEngine;
 namespace jmayberry.ReanimatorHelper.GraphNodes {
 	public class MirroredAnimationGraphNode : BaseGraphNode {
 		public MirroredCel[] cels { get; set; }
-		MirroredAnimationNode data;
+		internal MirroredAnimationNode data;
 
 		public void SetData(MirroredAnimationNode data) {
 			this.data = data;
@@ -25,10 +25,21 @@ namespace jmayberry.ReanimatorHelper.GraphNodes {
 			base.AddHeader();
 		}
 
-		public override void SaveData(string folderPath, bool autosave = true) {
+		public override void SaveData_CreateAsset(string folderPath, bool autosave = true) {
 			if (data == null) {
 				this.data = ScriptableObject.CreateInstance<MirroredAnimationNode>();
 				AssetDatabase.CreateAsset(this.data, AssetDatabase.GenerateUniqueAssetPath($"{folderPath}/{this.filename}.asset"));
+			}
+
+			if (autosave) {
+				AssetDatabase.SaveAssets();
+			}
+		}
+
+		public override void SaveData_UpdateAsset(string folderPath, bool autosave = true) {
+			if (data == null) {
+				Debug.LogError("data is empty");
+				return;
 			}
 
 			this.data.name = this.filename;
