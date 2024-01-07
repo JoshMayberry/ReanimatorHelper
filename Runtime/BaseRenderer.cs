@@ -8,27 +8,6 @@ using AYellowpaper.SerializedCollections;
 
 namespace jmayberry.ReanimatorHelper {
 	[Serializable]
-	public class AudioEventResult {
-		internal AudioSource audioSource;
-		public List<AudioClip> possibleClips;
-		public Action fmodTriggerFunction;
-
-		public void PlayAudio() {
-			if (this.fmodTriggerFunction != null) {
-				this.fmodTriggerFunction.Invoke();
-				return;
-			}
-
-			if (this.possibleClips.Count <= 0) {
-				Debug.LogWarning("No audio files or an fmod trigger were set");
-				return;
-			}
-
-			audioSource.PlayOneShot(this.possibleClips[UnityEngine.Random.Range(0, this.possibleClips.Count)]);
-		}
-	}
-
-	[Serializable]
 	public class UpdateEventResult {
 		public Func<int> getValueFunction;
 	}
@@ -82,16 +61,20 @@ namespace jmayberry.ReanimatorHelper {
 			}
 		}
 
-		protected virtual void Update() {
-			foreach (var updateEvent in updateEventCatalog) {
-				this.reanimator.Set($"{updateEvent.Key}", updateEvent.Value.getValueFunction());
-			}
-		}
+		//protected virtual void Update() {
+		//	foreach (var updateEvent in updateEventCatalog) {
+		//		this.reanimator.Set($"{updateEvent.Key}", updateEvent.Value.getValueFunction());
+		//	}
+		//}
 
-		protected virtual void FixedUpdate() {
-			foreach (var fixedUpdateEvent in fixedUpdateEventCatalog) {
-				this.reanimator.Set($"{fixedUpdateEvent.Key}", fixedUpdateEvent.Value.getValueFunction());
-			}
+		//protected virtual void FixedUpdate() {
+		//	foreach (var fixedUpdateEvent in fixedUpdateEventCatalog) {
+		//		this.reanimator.Set($"{fixedUpdateEvent.Key}", fixedUpdateEvent.Value.getValueFunction());
+		//	}
+		//}
+
+		public void SetKey(string key, int value) {
+			this.reanimator.Set(key, value);
 		}
 	}
 }

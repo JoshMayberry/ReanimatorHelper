@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02f1da0b6abdb7d45aa4315eccab639b, type: 3}
+  m_Name: twist_in
+  m_EditorClassIdentifier: 
+  cels:
+  - sprite: {fileID: -2017256253814007064, guid: ffac52d371f342145961aa0c1e83fa43, type: 3}
+    drivers:
+      keys:
+      - OnTwistIn
+      values: 00000000
+  - sprite: {fileID: 4660034186505115608, guid: ffac52d371f342145961aa0c1e83fa43, type: 3}
+    drivers:
+      keys: []
+      values: 
+  - sprite: {fileID: 1006544639738748818, guid: ffac52d371f342145961aa0c1e83fa43, type: 3}
+    drivers:
+      keys: []
+      values: 
+  - sprite: {fileID: 175911160425807657, guid: ffac52d371f342145961aa0c1e83fa43, type: 3}
+    drivers:
+      keys: []
+      values: 
+  - sprite: {fileID: -5270919336734786484, guid: ffac52d371f342145961aa0c1e83fa43, type: 3}
+    drivers:
+      keys: []
+      values: 
+  - sprite: {fileID: 1874939044769594608, guid: ffac52d371f342145961aa0c1e83fa43, type: 3}
+    drivers:
+      keys:
+      - OnTwistInFinished
+      values: 00000000
+  controlDriver:
+    name: temporary
+    autoIncrement: 1
+    percentageBased: 0
+    guid: 626fedd2-9e95-4f18-aa88-be6e53767bee
+  drivers:
+    keys: []
+    values: 

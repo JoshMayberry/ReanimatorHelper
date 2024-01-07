@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02f1da0b6abdb7d45aa4315eccab639b, type: 3}
+  m_Name: hurt
+  m_EditorClassIdentifier: 
+  cels:
+  - sprite: {fileID: 8244284191862846618, guid: 88510c8be7e92dc478740a6b8c513d04, type: 3}
+    drivers:
+      keys:
+      - OnHurt
+      values: 00000000
+  - sprite: {fileID: -6079102264843086211, guid: 88510c8be7e92dc478740a6b8c513d04, type: 3}
+    drivers:
+      keys: []
+      values: 
+  - sprite: {fileID: 5935767377088919728, guid: 88510c8be7e92dc478740a6b8c513d04, type: 3}
+    drivers:
+      keys: []
+      values: 
+  - sprite: {fileID: 6495454503116385451, guid: 88510c8be7e92dc478740a6b8c513d04, type: 3}
+    drivers:
+      keys: []
+      values: 
+  - sprite: {fileID: -639308215115737111, guid: 88510c8be7e92dc478740a6b8c513d04, type: 3}
+    drivers:
+      keys: []
+      values: 
+  - sprite: {fileID: 1818139710863196765, guid: 88510c8be7e92dc478740a6b8c513d04, type: 3}
+    drivers:
+      keys:
+      - OnHurtFinished
+      values: 00000000
+  controlDriver:
+    name: temporary
+    autoIncrement: 1
+    percentageBased: 0
+    guid: b7b2478e-d8f3-44b5-90ae-d4fd0efb0517
+  drivers:
+    keys: []
+    values: 

@@ -138,7 +138,7 @@ namespace jmayberry.ReanimatorHelper.Editor {
 
 			var existingNode = AssetDatabase.LoadAssetAtPath<SimpleAnimationNode>(assetPath);
 			if (existingNode == null) {
-				var animationNode = SimpleAnimationNode.Create<SimpleAnimationNode>(driver: new ControlDriver(name, true), cels: cels);
+				var animationNode = SimpleAnimationNode.Create<SimpleAnimationNode>(driver: new ControlDriver("temporary", true), cels: cels);
 				animationNode.name = name;
 				AssetDatabase.CreateAsset(animationNode, AssetDatabase.GenerateUniqueAssetPath(assetPath));
 				AssetDatabase.SaveAssets();

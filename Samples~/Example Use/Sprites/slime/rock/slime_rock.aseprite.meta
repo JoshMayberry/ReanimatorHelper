@@ -1,0 +1,1556 @@
+fileFormatVersion: 2
+guid: ffac52d371f342145961aa0c1e83fa43
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 32
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 638401737445344071
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: slime_rock_Frame_0
+    originalName: 
+    pivot: {x: 0.4827586, y: -0.04}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 69
+      width: 29
+      height: 25
+    spriteID: 5c144f889778cc8499a6dde13743b783
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 69}
+  - name: slime_rock_Frame_1
+    originalName: 
+    pivot: {x: 0.5, y: -0.04347826}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 44
+      y: 196
+      width: 30
+      height: 23
+    spriteID: 9aa63a0c47ad9a04faedf713492ae38b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 44, y: 196}
+  - name: slime_rock_Frame_2
+    originalName: 
+    pivot: {x: 0.5, y: -0.045454547}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 465
+      width: 32
+      height: 22
+    spriteID: 021327cf25701ee4eb91f13c34eeba4f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 465}
+  - name: slime_rock_Frame_21
+    originalName: 
+    pivot: {x: 0.48, y: -0.03846154}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 84
+      y: 74
+      width: 25
+      height: 26
+    spriteID: 293b6ccbdfd61134bb1c1bfd77cb3886
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 84, y: 74}
+  - name: slime_rock_Frame_22
+    originalName: 
+    pivot: {x: 0.46428573, y: -0.03846154}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 35
+      width: 28
+      height: 26
+    spriteID: cf4ca450f250c9944b334d325ec8e88d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 35}
+  - name: slime_rock_Frame_24
+    originalName: 
+    pivot: {x: 0.45833334, y: -0.03846154}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 84
+      y: 176
+      width: 24
+      height: 26
+    spriteID: 50ca5c1a6635f884a9ab4f4f53d86207
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 84, y: 176}
+  - name: slime_rock_Frame_27
+    originalName: 
+    pivot: {x: 0.48, y: -0.037037037}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 84
+      y: 4
+      width: 25
+      height: 27
+    spriteID: d1312aab039c5294a9e26dace08f2d2a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 84, y: 4}
+  - name: slime_rock_Frame_28
+    originalName: 
+    pivot: {x: 0.47368422, y: -0.033333335}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 84
+      y: 286
+      width: 19
+      height: 30
+    spriteID: f631ed91545697246b1243cab0850e73
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 84, y: 286}
+  - name: slime_rock_Frame_29
+    originalName: 
+    pivot: {x: 0.42105263, y: -0.033333335}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 84
+      y: 324
+      width: 19
+      height: 30
+    spriteID: e1a7dfa2918c5624abd185c676382455
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 84, y: 324}
+  - name: slime_rock_Frame_38
+    originalName: 
+    pivot: {x: 0.4827586, y: -0.04}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 102
+      width: 29
+      height: 25
+    spriteID: 61dc8b5e7b99c264c8a02160563ef403
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 102}
+  - name: slime_rock_Frame_39
+    originalName: 
+    pivot: {x: 0.5, y: -0.04347826}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 32
+      height: 23
+    spriteID: 522dcbcd34b68034f99f19bbfccb8851
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: slime_rock_Frame_40
+    originalName: 
+    pivot: {x: 0.48, y: -0.071428575}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 44
+      y: 124
+      width: 25
+      height: 28
+    spriteID: 9aca0027c0c33c3418e6b4b68144e868
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 44, y: 124}
+  - name: slime_rock_Frame_41
+    originalName: 
+    pivot: {x: 0.47619048, y: -0.10344827}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 84
+      y: 210
+      width: 21
+      height: 29
+    spriteID: 820807b03d9436e41b2be8a0d7c5e849
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 84, y: 210}
+  - name: slime_rock_Frame_42
+    originalName: 
+    pivot: {x: 0.47368422, y: -0.032258064}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 84
+      y: 247
+      width: 19
+      height: 31
+    spriteID: 6868ec4097feba54e9f887a8afca5f2a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 84, y: 247}
+  - name: slime_rock_Frame_45
+    originalName: 
+    pivot: {x: 0.4814815, y: -0.041666668}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 117
+      y: 37
+      width: 27
+      height: 24
+    spriteID: 75e9fa9d6b6238d4d84fd21f39cb1cf5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 117, y: 37}
+  - name: slime_rock_Frame_47
+    originalName: 
+    pivot: {x: 0.4814815, y: -0.04}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 117
+      y: 4
+      width: 27
+      height: 25
+    spriteID: e0e943d6a21422741b60e5dc30150ce3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 117, y: 4}
+  - name: slime_rock_Frame_3
+    originalName: 
+    pivot: {x: 0.5, y: -0.04347826}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 44
+      y: 227
+      width: 30
+      height: 23
+    spriteID: 4510370e18654d8439737f68c661ad47
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 44, y: 227}
+  - name: slime_rock_Frame_4
+    originalName: 
+    pivot: {x: 0.4827586, y: -0.04}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 135
+      width: 29
+      height: 25
+    spriteID: d7ee54aa38c51804f965f84117aa99cc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 135}
+  - name: slime_rock_Frame_5
+    originalName: 
+    pivot: {x: 0.5, y: -0.04347826}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 44
+      y: 258
+      width: 30
+      height: 23
+    spriteID: 3736a205a379d33428eba9e05b3bd392
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 44, y: 258}
+  - name: slime_rock_Frame_6
+    originalName: 
+    pivot: {x: 0.5, y: -0.045454547}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 44
+      y: 4
+      width: 32
+      height: 22
+    spriteID: 8f4b2eaec365fc24ca29e0e88cefc564
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 44, y: 4}
+  - name: slime_rock_Frame_7
+    originalName: 
+    pivot: {x: 0.5, y: -0.04347826}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 44
+      y: 289
+      width: 30
+      height: 23
+    spriteID: 5b10f2066b319364d965cfeb6e9c94e9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 44, y: 289}
+  - name: slime_rock_Frame_8
+    originalName: 
+    pivot: {x: 0.4827586, y: -0.04}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 168
+      width: 29
+      height: 25
+    spriteID: 60b90181de56d6b4488e6f13e75d4a48
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 168}
+  - name: slime_rock_Frame_9
+    originalName: 
+    pivot: {x: 0.5, y: -0.04347826}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 44
+      y: 320
+      width: 30
+      height: 23
+    spriteID: f8ca44754863d47489bb3e39ba378918
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 44, y: 320}
+  - name: slime_rock_Frame_10
+    originalName: 
+    pivot: {x: 0.5, y: -0.045454547}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 44
+      y: 34
+      width: 32
+      height: 22
+    spriteID: 47a405a95bdb58e49942b760b59868cf
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 44, y: 34}
+  - name: slime_rock_Frame_11
+    originalName: 
+    pivot: {x: 0.5, y: -0.04347826}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 44
+      y: 351
+      width: 30
+      height: 23
+    spriteID: b14410faf6e6c3547a08d4c366d66dca
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 44, y: 351}
+  - name: slime_rock_Frame_12
+    originalName: 
+    pivot: {x: 0.4827586, y: -0.04}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 201
+      width: 29
+      height: 25
+    spriteID: ae5131242e0111e458bd3f596bcd670e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 201}
+  - name: slime_rock_Frame_13
+    originalName: 
+    pivot: {x: 0.5, y: -0.04347826}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 44
+      y: 382
+      width: 30
+      height: 23
+    spriteID: 1ff604f600aed0c44a87e2f23903656e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 44, y: 382}
+  - name: slime_rock_Frame_14
+    originalName: 
+    pivot: {x: 0.5, y: -0.045454547}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 44
+      y: 64
+      width: 32
+      height: 22
+    spriteID: 38de03eaada8e484894eda9128c2fc89
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 44, y: 64}
+  - name: slime_rock_Frame_15
+    originalName: 
+    pivot: {x: 0.5, y: -0.04347826}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 44
+      y: 413
+      width: 30
+      height: 23
+    spriteID: 0e210e8149f7ccd4f948fae4e2b38c0b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 44, y: 413}
+  - name: slime_rock_Frame_16
+    originalName: 
+    pivot: {x: 0.4827586, y: -0.04}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 234
+      width: 29
+      height: 25
+    spriteID: 1cd25678f226030458b30628416dd2d4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 234}
+  - name: slime_rock_Frame_17
+    originalName: 
+    pivot: {x: 0.5, y: -0.04347826}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 44
+      y: 444
+      width: 30
+      height: 23
+    spriteID: a954d6dfc34ec7b4db42948d39f19807
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 44, y: 444}
+  - name: slime_rock_Frame_18
+    originalName: 
+    pivot: {x: 0.5, y: -0.045454547}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 44
+      y: 94
+      width: 32
+      height: 22
+    spriteID: c3f842f6328b3ee4db36137fc6a03dd0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 44, y: 94}
+  - name: slime_rock_Frame_19
+    originalName: 
+    pivot: {x: 0.5, y: -0.04347826}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 44
+      y: 475
+      width: 30
+      height: 23
+    spriteID: 6b321c4cfcca5774b8672acd74e90e45
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 44, y: 475}
+  - name: slime_rock_Frame_20
+    originalName: 
+    pivot: {x: 0.4827586, y: -0.04}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 267
+      width: 29
+      height: 25
+    spriteID: 74231f8a258365144a32de6979bef5bb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 267}
+  - name: slime_rock_Frame_23
+    originalName: 
+    pivot: {x: 0.48, y: -0.03846154}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 84
+      y: 108
+      width: 25
+      height: 26
+    spriteID: 00a958d206f840540907b39f880a41cb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 84, y: 108}
+  - name: slime_rock_Frame_25
+    originalName: 
+    pivot: {x: 0.48, y: -0.03846154}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 84
+      y: 142
+      width: 25
+      height: 26
+    spriteID: b4a146eae575a884ea7908afe246cf59
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 84, y: 142}
+  - name: slime_rock_Frame_26
+    originalName: 
+    pivot: {x: 0.4827586, y: -0.04}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 300
+      width: 29
+      height: 25
+    spriteID: 57c1c7fa18b367c4f8e247aef69d4e2a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 300}
+  - name: slime_rock_Frame_30
+    originalName: 
+    pivot: {x: 0.47368422, y: -0.033333335}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 84
+      y: 362
+      width: 19
+      height: 30
+    spriteID: 303b9e3be7bf4eb4fa624c53594d7781
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 84, y: 362}
+  - name: slime_rock_Frame_31
+    originalName: 
+    pivot: {x: 0.42105263, y: -0.033333335}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 84
+      y: 400
+      width: 19
+      height: 30
+    spriteID: 171c898dc78a5ff41bfda78ebb608246
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 84, y: 400}
+  - name: slime_rock_Frame_32
+    originalName: 
+    pivot: {x: 0.47368422, y: -0.033333335}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 84
+      y: 438
+      width: 19
+      height: 30
+    spriteID: 99b21730d5aa5b4418c4c34082a46802
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 84, y: 438}
+  - name: slime_rock_Frame_33
+    originalName: 
+    pivot: {x: 0.42105263, y: -0.033333335}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 84
+      y: 476
+      width: 19
+      height: 30
+    spriteID: d9dac04c431c7d84ab5923e4707dfd87
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 84, y: 476}
+  - name: slime_rock_Frame_34
+    originalName: 
+    pivot: {x: 0.47368422, y: -0.033333335}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 117
+      y: 69
+      width: 19
+      height: 30
+    spriteID: 3defd68a04d58b243afd22c9ec633a57
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 117, y: 69}
+  - name: slime_rock_Frame_35
+    originalName: 
+    pivot: {x: 0.42105263, y: -0.033333335}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 117
+      y: 107
+      width: 19
+      height: 30
+    spriteID: 93ff33a1080438f4797713cb79325600
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 117, y: 107}
+  - name: slime_rock_Frame_36
+    originalName: 
+    pivot: {x: 0.48, y: -0.037037037}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 84
+      y: 39
+      width: 25
+      height: 27
+    spriteID: ce4db9c66bf47fd489c78ee556e6c71a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 84, y: 39}
+  - name: slime_rock_Frame_37
+    originalName: 
+    pivot: {x: 0.4827586, y: -0.04}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 333
+      width: 29
+      height: 25
+    spriteID: 7657e4f347ed83f43b8b08a3d8bbd4d5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 333}
+  - name: slime_rock_Frame_43
+    originalName: 
+    pivot: {x: 0.48, y: -0.071428575}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 44
+      y: 160
+      width: 25
+      height: 28
+    spriteID: eede86ec4f174d24ba7b4402e7467834
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 44, y: 160}
+  - name: slime_rock_Frame_44
+    originalName: 
+    pivot: {x: 0.4827586, y: -0.04}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 366
+      width: 29
+      height: 25
+    spriteID: a3b9569abcb5c0642a3798744a750835
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 366}
+  - name: slime_rock_Frame_46
+    originalName: 
+    pivot: {x: 0.4827586, y: -0.04}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 399
+      width: 29
+      height: 25
+    spriteID: 9980adb0d1e41ae45bbb835cea62f1a3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 399}
+  - name: slime_rock_Frame_48
+    originalName: 
+    pivot: {x: 0.4827586, y: -0.04}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 432
+      width: 29
+      height: 25
+    spriteID: 2f6def5468b4f0d40b3cc2e0ad98ce43
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 432}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: 821855758
+    name: slime_rock
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: slime_rock_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: 2
+        y: 1
+        width: 29
+        height: 25
+      spriteId: 5c144f889778cc8499a6dde13743b783
+    - name: slime_rock_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 1
+        y: 1
+        width: 30
+        height: 23
+      spriteId: 9aa63a0c47ad9a04faedf713492ae38b
+    - name: slime_rock_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 0
+        y: 1
+        width: 32
+        height: 22
+      spriteId: 021327cf25701ee4eb91f13c34eeba4f
+    - name: slime_rock_Frame_21
+      frameIndex: 21
+      cellRect:
+        x: 4
+        y: 1
+        width: 25
+        height: 26
+      spriteId: 293b6ccbdfd61134bb1c1bfd77cb3886
+    - name: slime_rock_Frame_22
+      frameIndex: 22
+      cellRect:
+        x: 3
+        y: 1
+        width: 28
+        height: 26
+      spriteId: cf4ca450f250c9944b334d325ec8e88d
+    - name: slime_rock_Frame_24
+      frameIndex: 24
+      cellRect:
+        x: 5
+        y: 1
+        width: 24
+        height: 26
+      spriteId: 50ca5c1a6635f884a9ab4f4f53d86207
+    - name: slime_rock_Frame_27
+      frameIndex: 27
+      cellRect:
+        x: 4
+        y: 1
+        width: 25
+        height: 27
+      spriteId: d1312aab039c5294a9e26dace08f2d2a
+    - name: slime_rock_Frame_28
+      frameIndex: 28
+      cellRect:
+        x: 7
+        y: 1
+        width: 19
+        height: 30
+      spriteId: f631ed91545697246b1243cab0850e73
+    - name: slime_rock_Frame_29
+      frameIndex: 29
+      cellRect:
+        x: 8
+        y: 1
+        width: 19
+        height: 30
+      spriteId: e1a7dfa2918c5624abd185c676382455
+    - name: slime_rock_Frame_38
+      frameIndex: 38
+      cellRect:
+        x: 2
+        y: 1
+        width: 29
+        height: 25
+      spriteId: 61dc8b5e7b99c264c8a02160563ef403
+    - name: slime_rock_Frame_39
+      frameIndex: 39
+      cellRect:
+        x: 0
+        y: 1
+        width: 32
+        height: 23
+      spriteId: 522dcbcd34b68034f99f19bbfccb8851
+    - name: slime_rock_Frame_40
+      frameIndex: 40
+      cellRect:
+        x: 4
+        y: 2
+        width: 25
+        height: 28
+      spriteId: 9aca0027c0c33c3418e6b4b68144e868
+    - name: slime_rock_Frame_41
+      frameIndex: 41
+      cellRect:
+        x: 6
+        y: 3
+        width: 21
+        height: 29
+      spriteId: 820807b03d9436e41b2be8a0d7c5e849
+    - name: slime_rock_Frame_42
+      frameIndex: 42
+      cellRect:
+        x: 7
+        y: 1
+        width: 19
+        height: 31
+      spriteId: 6868ec4097feba54e9f887a8afca5f2a
+    - name: slime_rock_Frame_45
+      frameIndex: 45
+      cellRect:
+        x: 3
+        y: 1
+        width: 27
+        height: 24
+      spriteId: 75e9fa9d6b6238d4d84fd21f39cb1cf5
+    - name: slime_rock_Frame_47
+      frameIndex: 47
+      cellRect:
+        x: 3
+        y: 1
+        width: 27
+        height: 25
+      spriteId: e0e943d6a21422741b60e5dc30150ce3
+    - name: slime_rock_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 1
+        y: 1
+        width: 30
+        height: 23
+      spriteId: 4510370e18654d8439737f68c661ad47
+    - name: slime_rock_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 2
+        y: 1
+        width: 29
+        height: 25
+      spriteId: d7ee54aa38c51804f965f84117aa99cc
+    - name: slime_rock_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 1
+        y: 1
+        width: 30
+        height: 23
+      spriteId: 3736a205a379d33428eba9e05b3bd392
+    - name: slime_rock_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 0
+        y: 1
+        width: 32
+        height: 22
+      spriteId: 8f4b2eaec365fc24ca29e0e88cefc564
+    - name: slime_rock_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 1
+        y: 1
+        width: 30
+        height: 23
+      spriteId: 5b10f2066b319364d965cfeb6e9c94e9
+    - name: slime_rock_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 2
+        y: 1
+        width: 29
+        height: 25
+      spriteId: 60b90181de56d6b4488e6f13e75d4a48
+    - name: slime_rock_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 1
+        y: 1
+        width: 30
+        height: 23
+      spriteId: f8ca44754863d47489bb3e39ba378918
+    - name: slime_rock_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 0
+        y: 1
+        width: 32
+        height: 22
+      spriteId: 47a405a95bdb58e49942b760b59868cf
+    - name: slime_rock_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: 1
+        y: 1
+        width: 30
+        height: 23
+      spriteId: b14410faf6e6c3547a08d4c366d66dca
+    - name: slime_rock_Frame_12
+      frameIndex: 12
+      cellRect:
+        x: 2
+        y: 1
+        width: 29
+        height: 25
+      spriteId: ae5131242e0111e458bd3f596bcd670e
+    - name: slime_rock_Frame_13
+      frameIndex: 13
+      cellRect:
+        x: 1
+        y: 1
+        width: 30
+        height: 23
+      spriteId: 1ff604f600aed0c44a87e2f23903656e
+    - name: slime_rock_Frame_14
+      frameIndex: 14
+      cellRect:
+        x: 0
+        y: 1
+        width: 32
+        height: 22
+      spriteId: 38de03eaada8e484894eda9128c2fc89
+    - name: slime_rock_Frame_15
+      frameIndex: 15
+      cellRect:
+        x: 1
+        y: 1
+        width: 30
+        height: 23
+      spriteId: 0e210e8149f7ccd4f948fae4e2b38c0b
+    - name: slime_rock_Frame_16
+      frameIndex: 16
+      cellRect:
+        x: 2
+        y: 1
+        width: 29
+        height: 25
+      spriteId: 1cd25678f226030458b30628416dd2d4
+    - name: slime_rock_Frame_17
+      frameIndex: 17
+      cellRect:
+        x: 1
+        y: 1
+        width: 30
+        height: 23
+      spriteId: a954d6dfc34ec7b4db42948d39f19807
+    - name: slime_rock_Frame_18
+      frameIndex: 18
+      cellRect:
+        x: 0
+        y: 1
+        width: 32
+        height: 22
+      spriteId: c3f842f6328b3ee4db36137fc6a03dd0
+    - name: slime_rock_Frame_19
+      frameIndex: 19
+      cellRect:
+        x: 1
+        y: 1
+        width: 30
+        height: 23
+      spriteId: 6b321c4cfcca5774b8672acd74e90e45
+    - name: slime_rock_Frame_20
+      frameIndex: 20
+      cellRect:
+        x: 2
+        y: 1
+        width: 29
+        height: 25
+      spriteId: 74231f8a258365144a32de6979bef5bb
+    - name: slime_rock_Frame_23
+      frameIndex: 23
+      cellRect:
+        x: 4
+        y: 1
+        width: 25
+        height: 26
+      spriteId: 00a958d206f840540907b39f880a41cb
+    - name: slime_rock_Frame_25
+      frameIndex: 25
+      cellRect:
+        x: 4
+        y: 1
+        width: 25
+        height: 26
+      spriteId: b4a146eae575a884ea7908afe246cf59
+    - name: slime_rock_Frame_26
+      frameIndex: 26
+      cellRect:
+        x: 2
+        y: 1
+        width: 29
+        height: 25
+      spriteId: 57c1c7fa18b367c4f8e247aef69d4e2a
+    - name: slime_rock_Frame_30
+      frameIndex: 30
+      cellRect:
+        x: 7
+        y: 1
+        width: 19
+        height: 30
+      spriteId: 303b9e3be7bf4eb4fa624c53594d7781
+    - name: slime_rock_Frame_31
+      frameIndex: 31
+      cellRect:
+        x: 8
+        y: 1
+        width: 19
+        height: 30
+      spriteId: 171c898dc78a5ff41bfda78ebb608246
+    - name: slime_rock_Frame_32
+      frameIndex: 32
+      cellRect:
+        x: 7
+        y: 1
+        width: 19
+        height: 30
+      spriteId: 99b21730d5aa5b4418c4c34082a46802
+    - name: slime_rock_Frame_33
+      frameIndex: 33
+      cellRect:
+        x: 8
+        y: 1
+        width: 19
+        height: 30
+      spriteId: d9dac04c431c7d84ab5923e4707dfd87
+    - name: slime_rock_Frame_34
+      frameIndex: 34
+      cellRect:
+        x: 7
+        y: 1
+        width: 19
+        height: 30
+      spriteId: 3defd68a04d58b243afd22c9ec633a57
+    - name: slime_rock_Frame_35
+      frameIndex: 35
+      cellRect:
+        x: 8
+        y: 1
+        width: 19
+        height: 30
+      spriteId: 93ff33a1080438f4797713cb79325600
+    - name: slime_rock_Frame_36
+      frameIndex: 36
+      cellRect:
+        x: 4
+        y: 1
+        width: 25
+        height: 27
+      spriteId: ce4db9c66bf47fd489c78ee556e6c71a
+    - name: slime_rock_Frame_37
+      frameIndex: 37
+      cellRect:
+        x: 2
+        y: 1
+        width: 29
+        height: 25
+      spriteId: 7657e4f347ed83f43b8b08a3d8bbd4d5
+    - name: slime_rock_Frame_43
+      frameIndex: 43
+      cellRect:
+        x: 4
+        y: 2
+        width: 25
+        height: 28
+      spriteId: eede86ec4f174d24ba7b4402e7467834
+    - name: slime_rock_Frame_44
+      frameIndex: 44
+      cellRect:
+        x: 2
+        y: 1
+        width: 29
+        height: 25
+      spriteId: a3b9569abcb5c0642a3798744a750835
+    - name: slime_rock_Frame_46
+      frameIndex: 46
+      cellRect:
+        x: 2
+        y: 1
+        width: 29
+        height: 25
+      spriteId: 9980adb0d1e41ae45bbb835cea62f1a3
+    - name: slime_rock_Frame_48
+      frameIndex: 48
+      cellRect:
+        x: 2
+        y: 1
+        width: 29
+        height: 25
+      spriteId: 2f6def5468b4f0d40b3cc2e0ad98ce43
+    linkedCells: []
+    parentIndex: -1
+  platformSettings:
+  - name: DefaultTexturePlatform
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Standalone
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Server
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: WebGL
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 32, y: 32}

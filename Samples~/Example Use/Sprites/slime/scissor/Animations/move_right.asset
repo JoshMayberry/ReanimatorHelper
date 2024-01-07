@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02f1da0b6abdb7d45aa4315eccab639b, type: 3}
+  m_Name: move_right
+  m_EditorClassIdentifier: 
+  cels:
+  - sprite: {fileID: 8629306590795276065, guid: 88510c8be7e92dc478740a6b8c513d04, type: 3}
+    drivers:
+      keys:
+      - OnMove
+      values: 00000000
+  - sprite: {fileID: 5171076530233436687, guid: 88510c8be7e92dc478740a6b8c513d04, type: 3}
+    drivers:
+      keys: []
+      values: 
+  - sprite: {fileID: 7553613524099970402, guid: 88510c8be7e92dc478740a6b8c513d04, type: 3}
+    drivers:
+      keys: []
+      values: 
+  - sprite: {fileID: 1681868358520937370, guid: 88510c8be7e92dc478740a6b8c513d04, type: 3}
+    drivers:
+      keys: []
+      values: 
+  controlDriver:
+    name: temporary
+    autoIncrement: 1
+    percentageBased: 0
+    guid: 4852eaba-1d8d-47e3-b5f6-88cc67d2f358
+  drivers:
+    keys: []
+    values: 

@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02f1da0b6abdb7d45aa4315eccab639b, type: 3}
+  m_Name: twist_out
+  m_EditorClassIdentifier: 
+  cels:
+  - sprite: {fileID: 2434876719600256097, guid: ffac52d371f342145961aa0c1e83fa43, type: 3}
+    drivers:
+      keys: []
+      values: 
+  - sprite: {fileID: -4467708095602085849, guid: ffac52d371f342145961aa0c1e83fa43, type: 3}
+    drivers:
+      keys: []
+      values: 
+  - sprite: {fileID: 1700309892040916785, guid: ffac52d371f342145961aa0c1e83fa43, type: 3}
+    drivers:
+      keys: []
+      values: 
+  - sprite: {fileID: 9119063391895337280, guid: ffac52d371f342145961aa0c1e83fa43, type: 3}
+    drivers:
+      keys: []
+      values: 
+  - sprite: {fileID: -7332745562834341587, guid: ffac52d371f342145961aa0c1e83fa43, type: 3}
+    drivers:
+      keys: []
+      values: 
+  - sprite: {fileID: -4423154057517711086, guid: ffac52d371f342145961aa0c1e83fa43, type: 3}
+    drivers:
+      keys:
+      - OnTwistOutFinished
+      values: 00000000
+  controlDriver:
+    name: temporary
+    autoIncrement: 1
+    percentageBased: 0
+    guid: 1aef51fe-7d64-48ac-8c28-affb69de3e26
+  drivers:
+    keys: []
+    values: 

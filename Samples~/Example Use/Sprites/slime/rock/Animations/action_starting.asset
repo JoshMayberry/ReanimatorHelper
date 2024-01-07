@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02f1da0b6abdb7d45aa4315eccab639b, type: 3}
+  m_Name: action_starting
+  m_EditorClassIdentifier: 
+  cels:
+  - sprite: {fileID: -6755711889943373335, guid: ffac52d371f342145961aa0c1e83fa43, type: 3}
+    drivers:
+      keys:
+      - OnActionStarting
+      values: 00000000
+  - sprite: {fileID: -4719756453016166312, guid: ffac52d371f342145961aa0c1e83fa43, type: 3}
+    drivers:
+      keys: []
+      values: 
+  - sprite: {fileID: -7701640365099653942, guid: ffac52d371f342145961aa0c1e83fa43, type: 3}
+    drivers:
+      keys: []
+      values: 
+  - sprite: {fileID: 4269635154491347258, guid: ffac52d371f342145961aa0c1e83fa43, type: 3}
+    drivers:
+      keys: []
+      values: 
+  - sprite: {fileID: 5861399758822689492, guid: ffac52d371f342145961aa0c1e83fa43, type: 3}
+    drivers:
+      keys: []
+      values: 
+  - sprite: {fileID: -7037342413089553359, guid: ffac52d371f342145961aa0c1e83fa43, type: 3}
+    drivers:
+      keys:
+      - OnActionStartingFinished
+      values: 00000000
+  controlDriver:
+    name: temporary
+    autoIncrement: 1
+    percentageBased: 0
+    guid: 7730f75d-bb61-4670-bbde-69a395eb0169
+  drivers:
+    keys: []
+    values: 
