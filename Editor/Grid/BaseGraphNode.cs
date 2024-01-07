@@ -19,6 +19,7 @@ namespace jmayberry.ReanimatorHelper.GraphNodes {
 		[SerializeField] internal protected Port inputPort;
 		[SerializeField] protected StyleColor defaultBackgroundColor;
 		[SerializeField] protected ReanimatorGraphView graphView;
+		[SerializeField] protected string filename;
 
 		public virtual void Initialize(ReanimatorGraphView graphView, Vector2 position) {
 			this.graphView = graphView;
@@ -44,11 +45,13 @@ namespace jmayberry.ReanimatorHelper.GraphNodes {
 		}
 
 		protected virtual void AddHeader() {
-			TextField nameField = GraphUtilities.CreateTextField(ReadableNodeUtilities.GetName(controlDriver)); // TODO: Make this the file name and put this in the control driver section
+			TextField nameField = GraphUtilities.CreateTextField(value: this.filename, onValueChanged: evt => {
+				this.filename = evt.newValue;
+			});
+			titleContainer.Insert(1, nameField);
 			nameField.AddToClassList("ds-node__text-field");
 			nameField.AddToClassList("ds-node__text-field__hidden");
 			nameField.AddToClassList("ds-node__filename-text-field");
-			titleContainer.Insert(1, nameField);
 		}
 
 		protected virtual void AddPorts() {
@@ -74,8 +77,14 @@ namespace jmayberry.ReanimatorHelper.GraphNodes {
 		}
 
 		protected virtual void DrawControlDriver() {
-			Foldout controlDriverFoldout = new Foldout() { text = "Control Driver", value = false };
+			Foldout controlDriverFoldout = new Foldout() { text = "Control Driver", value = true };
 			extensionContainer.Add(controlDriverFoldout);
+
+			TextField nameField = GraphUtilities.CreateTextField(ReadableNodeUtilities.GetName(controlDriver));
+			controlDriverFoldout.Add(nameField);
+			nameField.RegisterValueChangedCallback(evt => {
+				ReadableNodeUtilities.SetName(controlDriver, evt.newValue);
+			});
 
 			Toggle autoIncrementToggle = new Toggle() { text = "Auto Increment", value = ReadableNodeUtilities.GetAutoIncrement(controlDriver) };
 			controlDriverFoldout.Add(autoIncrementToggle);
@@ -225,6 +234,14 @@ namespace jmayberry.ReanimatorHelper.GraphNodes {
 						yield return childNode;
 					}
 				}
+			}
+		}
+
+		public void DisconnectAllPorts() {
+			RemovePortConnections(this.inputPort);
+
+			foreach (var port in this.outputPorts) {
+				RemovePortConnections(port);
 			}
 		}
 	}

@@ -13,23 +13,20 @@ namespace jmayberry.ReanimatorHelper.GraphNodes {
 
 		public void SetData(SimpleAnimationNode data) {
 			this.data = data;
+			this.filename = this.data.name;
 
 			this.controlDriver = ReadableNodeUtilities.GetControlDriver(data);
 			this.drivers = ReadableNodeUtilities.GetDriverDictionary(data);
 			this.cels = ReadableNodeUtilities.GetCels(data);
 		}
 
-		protected override void AddHeader() {
-			this.SetLabel("Simple");
-			base.AddHeader();
-		}
-
 		public override void SaveData(string folderPath, bool autosave = true) {
 			if (data == null) {
 				this.data = ScriptableObject.CreateInstance<SimpleAnimationNode>();
-				AssetDatabase.CreateAsset(this.data, AssetDatabase.GenerateUniqueAssetPath($"{folderPath}/{ReadableNodeUtilities.GetName(this.controlDriver)}.asset"));
+				AssetDatabase.CreateAsset(this.data, AssetDatabase.GenerateUniqueAssetPath($"{folderPath}/{this.filename}.asset"));
 			}
 
+			this.data.name = this.filename;
 			ReadableNodeUtilities.SetControlDriver(data, this.controlDriver);
 			ReadableNodeUtilities.SetDriverDictionary(data, this.drivers);
 			ReadableNodeUtilities.SetCels(data, this.cels);

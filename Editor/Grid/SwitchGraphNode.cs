@@ -15,6 +15,7 @@ namespace jmayberry.ReanimatorHelper.GraphNodes {
 
 		public void SetData(SwitchNode data) {
 			this.data = data;
+			this.filename = this.data.name;
 
 			this.controlDriver = ReadableNodeUtilities.GetControlDriver(data);
 			this.drivers = ReadableNodeUtilities.GetDriverDictionary(data);
@@ -29,9 +30,10 @@ namespace jmayberry.ReanimatorHelper.GraphNodes {
 		public override void SaveData(string folderPath, bool autosave=true) {
 			if (data == null) {
 				this.data = ScriptableObject.CreateInstance<SwitchNode>();
-				AssetDatabase.CreateAsset(this.data, AssetDatabase.GenerateUniqueAssetPath($"{folderPath}/{ReadableNodeUtilities.GetName(this.controlDriver)}.asset"));
+				AssetDatabase.CreateAsset(this.data, AssetDatabase.GenerateUniqueAssetPath($"{folderPath}/{this.filename}.asset"));
 			}
 
+			this.data.name = this.filename;
 			ReadableNodeUtilities.SetControlDriver(data, this.controlDriver);
 			ReadableNodeUtilities.SetDriverDictionary(data, this.drivers);
 			ReadableNodeUtilities.SetNodes(data, this.nodes);

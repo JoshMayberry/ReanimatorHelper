@@ -58,6 +58,17 @@ namespace jmayberry.ReanimatorHelper.Editor {
 			toolbar.Add(GraphUtilities.CreateButton("Load", Load));
 			toolbar.Add(saveButton);
 			toolbar.Add(miniMapButton);
+			toolbar.Add(GraphUtilities.CreateButton("AutoSort", () => {
+				var nodeList = new List<BaseGraphNode>();
+
+				foreach (Node node in graphView.nodes) {
+					if (node is BaseGraphNode baseGraphNode) {
+						nodeList.Add(baseGraphNode);
+					}
+				}
+
+				this.AutoSort(nodeList);
+			}));
 		}
 		private void AddGraph() {
 			graphView = new ReanimatorGraphView(this) {
@@ -76,7 +87,7 @@ namespace jmayberry.ReanimatorHelper.Editor {
 
 			// Let them render in first
 			graphView.schedule.Execute(() => {
-				Load_PositionNodes(nodeCatalog);
+				AutoSort(nodeCatalog.Values.ToList());
 			}).StartingIn(10);
 		}
 
@@ -151,21 +162,8 @@ namespace jmayberry.ReanimatorHelper.Editor {
 			}
 		}
 
-		private void Load_PositionNodesOld(Dictionary<string, BaseGraphNode> nodeCatalog) {
-			int xPadding = 30;
-			int yPosition = 50;
-			int initialXPos = 200;
-			graphView.schedule.Execute(() => {
-				int xPos = initialXPos;
-				foreach (var node in nodeCatalog.Values) {
-					node.SetPosition(new Rect(xPos, yPosition, node.layout.width, node.layout.height));
-					xPos += (int)node.layout.width + xPadding;
-				}
-			}).StartingIn(10);
-		}
-
-		private void Load_PositionNodes(Dictionary<string, BaseGraphNode> nodeCatalog) {
-			var nodesByDepth = Load_PositionNodes_CalculateDepthLevels(nodeCatalog);
+		private void AutoSort(List<BaseGraphNode> nodeList) {
+			var nodesByDepth = AutoSort_CalculateDepthLevels(nodeList);
 
 			int yPadding = 30;
 			int xPadding = 90;
@@ -176,11 +174,25 @@ namespace jmayberry.ReanimatorHelper.Editor {
 			var sortedDepthLevels = nodesByDepth.Keys.ToList();
 			sortedDepthLevels.Sort();
 
+			var parentList = new List<BaseGraphNode>();
 			foreach (var depthLevel in sortedDepthLevels) {
 				int yPos = initialYPos;
 				int widestNodeInThisDepth = 0;
 
-				foreach (var node in nodesByDepth[depthLevel]) {
+				var nodesAtDepth = nodesByDepth[depthLevel];
+
+				var connectionOrders = new Dictionary<BaseGraphNode, (int parentOrder, int portOrder)>();
+
+				foreach (var node in nodesAtDepth) {
+					connectionOrders[node] = AutoSort_GetConnectionOrder(node, parentList);
+				}
+
+				var sortedNodes = nodesAtDepth.OrderBy(n => connectionOrders[n].parentOrder)
+											  .ThenBy(n => connectionOrders[n].portOrder)
+											  .ToList();
+
+				parentList = sortedNodes.ToList();
+				foreach (var node in sortedNodes) {
 					int nodeWidth = (int)node.layout.width;
 					int xPos = initialXPos + widestNodeInPreviousDepth + nodeWidth / 2;
 
@@ -194,20 +206,33 @@ namespace jmayberry.ReanimatorHelper.Editor {
 			}
 		}
 
-		private Dictionary<int, List<BaseGraphNode>> Load_PositionNodes_CalculateDepthLevels(Dictionary<string, BaseGraphNode> nodeCatalog) {
+		private (int parentOrder, int portOrder) AutoSort_GetConnectionOrder(BaseGraphNode node, List<BaseGraphNode> parentList) {
+			if (node.inputPort.connected) {
+				foreach (var edge in node.inputPort.connections) {
+					if (edge.output.node is BaseGraphNode parentNode) {
+						int parentOrder = parentList.IndexOf(parentNode);
+						int portOrder = parentNode.outputPorts.IndexOf(edge.output);
+						return (parentOrder, portOrder);
+					}
+				}
+			}
+			return (-1, -1);
+		}
 
-			foreach (var node in nodeCatalog.Values) {
+		private Dictionary<int, List<BaseGraphNode>> AutoSort_CalculateDepthLevels(List<BaseGraphNode> nodeList) {
+
+			foreach (var node in nodeList) {
 				node.userData = -1;
 			}
 
-			foreach (var node in nodeCatalog.Values) {
+			foreach (var node in nodeList) {
 				if (!node.inputPort.connected) {
-					Load_PositionNodes_TraverseAndSetDepth(node, 0);
+					AutoSort_TraverseAndSetDepth(node, 0);
 				}
 			}
 
 			var nodesByDepth = new Dictionary<int, List<BaseGraphNode>>();
-			foreach (var node in nodeCatalog.Values) {
+			foreach (var node in nodeList) {
 				int currentDepth = (int)node.userData;
 
 				if (!nodesByDepth.ContainsKey(currentDepth)) {
@@ -219,7 +244,7 @@ namespace jmayberry.ReanimatorHelper.Editor {
 			return nodesByDepth;
 		}
 
-		private void Load_PositionNodes_TraverseAndSetDepth(BaseGraphNode node, int currentDepth) {
+		private void AutoSort_TraverseAndSetDepth(BaseGraphNode node, int currentDepth) {
 			int recordedDepth = (int)node.userData;
 			if (recordedDepth > currentDepth) {
 				return; // For nodes connected to multiple outputs, push them out as far as needed
@@ -227,7 +252,7 @@ namespace jmayberry.ReanimatorHelper.Editor {
 
 			node.userData = currentDepth;
 			foreach (var childNode in node.YieldChildNodes()) {
-				Load_PositionNodes_TraverseAndSetDepth(childNode, currentDepth + 1);
+				AutoSort_TraverseAndSetDepth(childNode, currentDepth + 1);
 			}
 		}
 

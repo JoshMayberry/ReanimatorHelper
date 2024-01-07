@@ -9,6 +9,7 @@ using jmayberry.ReanimatorHelper.Utilities;
 using jmayberry.ReanimatorHelper.GraphNodes;
 using System.Text.RegularExpressions;
 using Aarthificial.Reanimation.Nodes;
+using System.Linq;
 
 namespace jmayberry.ReanimatorHelper.Editor {
 	public class ReanimatorGraphView : GraphView {
@@ -155,6 +156,14 @@ namespace jmayberry.ReanimatorHelper.Editor {
 		public void NodeHasError(string guid) {
 			ErrorNodes.Add(guid);
 			editorWindow.DisableSaving();
+		}
+
+		public override EventPropagation DeleteSelection() {
+			foreach (BaseGraphNode node in selection.OfType<BaseGraphNode>()) {
+				node.DisconnectAllPorts();
+			}
+
+			return base.DeleteSelection();
 		}
 	}
 }
